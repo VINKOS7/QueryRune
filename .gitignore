@@ -1,0 +1,38 @@
+## Core build outputs
+[Bb]in/
+[Oo]bj/
+[Log]s/
+
+## Visual Studio working files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## VS Code settings and workspace files
+.vscode/
+!.vscode/extensions.json
+
+## Rider / JetBrains IDEs
+.idea/
+*.sln.iml
+
+## ASP.NET Core specific exclusions
+### Local secrets management (NEVER commit secrets to source control)
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+### Frontend build artifacts (if using Angular, React, etc.)
+node_modules/
+/wwwroot/dist/
+dist/
+
+### Compiled publish output
+/publish/
+/out/
+
+## Operating system files
+Thumbs.db
+.DS_Store

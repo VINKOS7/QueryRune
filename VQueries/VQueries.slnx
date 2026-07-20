@@ -1,0 +1,11 @@
+<Solution>
+  <Project Path="TestCLient/TestCLient.csproj" Id="00276072-3a58-4791-94ad-9c355bb4a815" />
+  <Project Path="VQueries.Domain/VQueries.Domain.csproj" />
+  <Project Path="VQueries.Infra/VQueries.Infra.csproj">
+    <BuildDependency Project="VQueries.Domain/VQueries.Domain.csproj" />
+  </Project>
+  <Project Path="VQueries/VQueries.Api.csproj">
+    <BuildDependency Project="VQueries.Domain/VQueries.Domain.csproj" />
+    <BuildDependency Project="VQueries.Infra/VQueries.Infra.csproj" />
+  </Project>
+</Solution>
