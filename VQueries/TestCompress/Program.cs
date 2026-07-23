@@ -3,9 +3,9 @@
     static void Main(string[] args)
     {
         var cque = new CQUE();
-        string alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&'()*+,;=%";
+        string alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&'()*+,;=%\"";
 
-        string input = "navicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsv!";
+        string input = "navicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsvinavicororobawsv!!";
 
         if (input.Length % 2 is not 0) input = input + '"';
 
