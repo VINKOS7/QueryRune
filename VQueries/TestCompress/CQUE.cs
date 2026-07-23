@@ -1,23 +1,25 @@
 ﻿public class CQUE
 {
     // СЖАТИЕ:
-    public int[] Compress(string input, string clientAlphabet)
+    public int[] Compress(string input, string clientAlphabet, int sizeChein)
     {
-        if (string.IsNullOrEmpty(input) || input.Length % 2 != 0 || string.IsNullOrEmpty(clientAlphabet)) return new int[0];
+        if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(clientAlphabet)) return [];
 
         int baseLen = clientAlphabet.Length;
-        int totalBlocks = input.Length / 2;
+        int totalBlocks = input.Length / sizeChein;
         int[] res = new int[totalBlocks];
 
         for (int b = 0; b < totalBlocks; b++)
         {
-            int idx1 = clientAlphabet.IndexOf(input[b * 2]);
-            int idx2 = clientAlphabet.IndexOf(input[b * 2 + 1]);
+            int idx1 = clientAlphabet.IndexOf(input[b * sizeChein]);
+            int idx2 = clientAlphabet.IndexOf(input[b * sizeChein + 1]);
+
             if (idx1 < 0 || idx2 < 0) return [0];
 
             // Формула плоской матрицы: переводим пару в один уникальный ID
             res[b] = (idx1 * baseLen) + idx2;
         }
+
         return res;
     }
 
@@ -49,16 +51,16 @@
         alphabetLevels = new List<string> { alphabet };
 
         string currentAlphabet = alphabet;
-        int[] current = Compress(input, currentAlphabet);
+        int[] current = Compress(input, currentAlphabet, sizeChein);
 
-        while (current.Length > sizeChein && current.Length % 2 == 0 && current.Length > 0)
+        while (current.Length > sizeChein && current.Length % sizeChein == 0 && current.Length > 0)
         {
             string asString = IntArrayToString(current);
 
             currentAlphabet = currentAlphabet + asString;
             alphabetLevels.Add(currentAlphabet);
 
-            current = Compress(asString, currentAlphabet);
+            current = Compress(asString, currentAlphabet, sizeChein);
         }
 
         return current;
