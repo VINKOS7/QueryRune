@@ -1,6 +1,6 @@
 ﻿public class CQUE
 {
-    // СЖАТИЕ: Из 8 символов делает массив из 4 чисел (длина ровно в 2 раза меньше)
+    // СЖАТИЕ:
     public int[] Compress(string input, string clientAlphabet)
     {
         if (string.IsNullOrEmpty(input) || input.Length % 2 != 0 || string.IsNullOrEmpty(clientAlphabet)) return new int[0];
@@ -21,27 +21,26 @@
         return res;
     }
 
-    // РАСЖАТИЕ: Из массива чисел восстанавливает исходную строку текста
+    // РАСЖАТИЕ:
     public string Decompress(int[] input, string clientAlphabet)
     {
         if (input == null || input.Length == 0 || string.IsNullOrEmpty(clientAlphabet)) return "";
 
-        int baseLen = clientAlphabet.Length;
         char[] res = new char[input.Length * 2];
         int resIdx = 0;
 
-        for (int b = 0; b < input.Length; b++)
+        for (int mover = 0; mover < input.Length; mover++)
         {
-            int id = input[b];
+            int id = input[mover];
 
-            // Обратная математика матрицы: достаем координаты X и Y из ID
-            int idx1 = id / baseLen;
-            int idx2 = id % baseLen;
+            int idx1 = id / clientAlphabet.Length;
+            int idx2 = id % clientAlphabet.Length;
 
             res[resIdx] = clientAlphabet[idx1];
             res[resIdx + 1] = clientAlphabet[idx2];
             resIdx += 2;
         }
+
         return new string(res);
     }
 

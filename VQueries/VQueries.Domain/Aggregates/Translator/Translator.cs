@@ -115,10 +115,9 @@ public class Translator : Entity, IAggregateRoot
     }
 
 
-    public static CompressedResult CompressRecursive(string s, string alphabet, int target)
-        => CompressRecursive(s, alphabet, target, new List<string> { alphabet });
+    public static CompressedResult CompressRecursive(string s, string alphabet, int target) => CompressRecursive(s, alphabet, target, new List<string> { alphabet });
 
-    private static CompressedResult CompressRecursive(string s, string alphabet, int target, List<string> levels)
+    public static CompressedResult CompressRecursive(string s, string alphabet, int target, List<string> levels)
     {
         int[] cur = Rune(s, alphabet);
 
